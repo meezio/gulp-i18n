@@ -1,17 +1,17 @@
-# gulp-i18n
+# gulp-i18n-messageformat
 
-[![NPM](https://nodei.co/npm/gulp-i18n.png?compact=true)](https://nodei.co/npm/gulp-i18n/)
+[![NPM](https://nodei.co/npm/gulp-i18n-messageformat.png?compact=true)](https://nodei.co/npm/gulp-i18n-messageformat/)
 
-[![Build Status](https://travis-ci.org/ciclo-pe/gulp-i18n.svg?branch=master)](https://travis-ci.org/ciclo-pe/gulp-i18n)
-[![Dependency Status](https://david-dm.org/ciclo-pe/gulp-i18n.svg?style=flat)](https://david-dm.org/ciclo-pe/gulp-i18n)
-[![devDependency Status](https://david-dm.org/ciclo-pe/gulp-i18n/dev-status.png)](https://david-dm.org/ciclo-pe/gulp-i18n#info=devDependencies)
+[![Build Status](https://travis-ci.org/ciclo-pe/gulp-i18n-messageformat.svg?branch=master)](https://travis-ci.org/ciclo-pe/gulp-i18n-messageformat)
+[![Dependency Status](https://david-dm.org/ciclo-pe/gulp-i18n-messageformat.svg?style=flat)](https://david-dm.org/ciclo-pe/gulp-i18n-messageformat)
+[![devDependency Status](https://david-dm.org/ciclo-pe/gulp-i18n-messageformat/dev-status.png)](https://david-dm.org/ciclo-pe/gulp-i18n-messageformat#info=devDependencies)
 
 Compile `json` files using [`messageformat.js`](https://github.com/SlexAxton/messageformat.js).
 
 ## Install
 
 ```
-npm install --save-dev gulp-i18n
+npm install --save-dev gulp-i18n-messageformat
 ```
 
 ## Example
@@ -97,6 +97,7 @@ $ gulp i18n
     </script>
   </body>
 </html>
+```
 
 ### 4. Options
 
