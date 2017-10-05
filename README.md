@@ -62,7 +62,7 @@ In your `gulpfile.js`:
 'use strict';
 
 const Gulp = require('gulp');
-const I18n = require('gulp-i18n');
+const I18n = require('gulp-i18n-messageformat');
 
 Gulp.task('i18n', () => {
 
@@ -126,7 +126,7 @@ Regular Expressions can be used for custom paths.
 'use strict';
 
 const Gulp = require('gulp');
-const I18n = require('gulp-i18n');
+const I18n = require('gulp-i18n-messageformat');
 
 Gulp.task('i18n', () => {
 
