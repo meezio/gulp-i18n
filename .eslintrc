@@ -2,5 +2,9 @@
   "rules": {
     "indent": [ 2, 2 ]
   },
-  "extends": "hapi"
+  "extends": "hapi",
+  "env": {
+    "node": true,
+    "mocha": true
+  }
 }

@@ -10,15 +10,20 @@ const Marked = require('marked');
 
 module.exports = function (options) {
 
+  options = options || {};
+  options.locale = options.locale || /^([^\/]*).*$/;
+  options.namespace = options.namespace || /^.*\/(.*)\.[^.]*$/;
+
   const locales = {};
 
   const parse = function (file, encoding, next) {
 
-    const relativeParts = file.relative.split('/');
-    const ext = relativeParts[relativeParts.length - 1].split('.').pop();
+    const ext = file.relative.split('.').pop();
+    const locale = file.relative.match(options.locale);
+    const namespace = file.relative.match(options.namespace);
     const message = {
-      locale: relativeParts.shift(),
-      namespace: relativeParts.join('/').replace(/\.[^.]*$/, '').replace(/\\/g, '/'),
+      locale: locale ? locale[1] : locale,
+      namespace: namespace ? namespace[1] : namespace,
       data: null
     };
 

@@ -97,4 +97,47 @@ $ gulp i18n
     </script>
   </body>
 </html>
+
+### 4. Options
+
+Regular Expressions can be used for custom paths.
+
+```
+.
+├── gulpfile.js
+├── module1
+│   └── i18n
+│       ├── en.json
+│       └── es.json
+├── module2
+│   └── i18n
+│       ├── en.json
+│       └── es.json
+├── package.json
+└── www
+    ├── i18n
+    │   ├── en.js
+    │   └── es.js
+    └── index.html
+```
+
+```js
+'use strict';
+
+const Gulp = require('gulp');
+const I18n = require('gulp-i18n');
+
+Gulp.task('i18n', () => {
+
+  Gulp.src('*/i18n/*.json')
+    .pipe(I18n({
+      locale: '^.*\/(.*)\.json$',
+      namespace: '^(.*)\/i18n\/.*\.json$'
+    }))
+    .pipe(Gulp.dest('www/i18n/'));
+});
+```
+
+```
+console.log(window.i18n.module1['ubicación']());
 ```

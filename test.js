@@ -73,6 +73,33 @@ describe('gulp-i18n', () => {
       i18n.end(fakeFile);
     });
 
+    it('should compile with options', (done) => {
+
+      const fakeFile = new File({
+        cwd: internals.tmpdir,
+        path: Path.join(internals.tmpdir, 'test', 'i18n', 'en.json'),
+        contents: Buffer.from(JSON.stringify({ foo: 'bar' }))
+      });
+
+      const i18n = I18n({ locale: '^.*\/(.*)\.json$', namespace: '^(.*)\/i18n\/.*\.json$' });
+
+      i18n.once('data', (file) => {
+
+        const fn = eval('(function () {' +
+          '\nvar window = {};' +
+          '\n' + file.contents.toString() + ';' +
+          '\nreturn window.i18n;' +
+          '\n})');
+
+        const compiled = fn();
+        Assert.equal(compiled.test.foo(), 'bar');
+
+        done();
+      });
+
+      i18n.end(fakeFile);
+    });
+
   });
 
 });
